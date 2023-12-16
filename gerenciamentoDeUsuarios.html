@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar um sistema de gerenciamento de usuários. Para isso voce precisa realizar o seguinte processo:</title>
+</head>
+
+<body>
+    <script>
+
+        // variavel com logica booleana para o loop while, fazer enquanto opção for verdadeira
+        let loopBreak = true
+        // Precisa criar o array escopo global para armazenar as variaveis nome, numero telefone 
+        let arrayUsuarios = []
+
+        // Inicio da função para data no padrão Brasil
+        // *********************************************************************************************************************************************************
+
+        function formatarDataBrasileira(data) {
+            // Obtém os componentes da data
+            let dia = data.getDate().toString().padStart(2, '0');
+            let mes = (data.getMonth() + 1).toString().padStart(2, '0'); // Mês é base 0, pois é um array e começa na posição 0 então adicionamos 1
+            let ano = data.getFullYear();
+
+            // Formata a data no formato brasileiro
+            return `${dia}/${mes}/${ano}`;
+        }
+
+        // Cria um objeto Date com a data atual
+        let data = new Date();
+
+        // Formata a data no formato brasileiro
+        let dataFormatada = formatarDataBrasileira(data);
+
+        // Exibe a data formatada no console
+        // alert(`Data: ${dataFormatada}`);
+
+
+        // *********************************************************************************************************************************************************
+        // Fim da função da função data no padrão Brasil
+
+
+        // Entrada de dados
+        // Criação de um menu com as 4 operações que o usuário pode realizar (Cadastrar, listar, atualizar, deletar)
+
+        // Este looping funciona enquanto a variavel loopBreak fou verdadeira
+        while (loopBreak) {
+            // realizar a criação dos métodos com switch case para validar as opções do usuário
+            let opcaoUsuario = parseInt(prompt(`
+            
+            Escolha uma opção abaixo
+            *******************************
+            [ 1 ] - Cadastrar usuário...
+            [ 2 ] - Listagem de usuários...
+            [ 3 ] - Atualizar cadastro de usuários...
+            [ 4 ] - Excluir cadastro...
+            `))
+
+            switch (opcaoUsuario) {
+                case 1:
+
+                    // Quando realizar o cadastro do usuário, realizar também a data de cadastro do usuário (quando ele foi criado) e exibir o usuário, o email e a data que o usuário foi criando
+                    // Cadastro: Nome, email e senha
+
+
+                    let nomeUsuario = prompt("Informar o nome do usuário: ")
+                    let cadEmail = prompt("Informe o email do usuário:    ")
+                    let CadSenha = prompt("Informe a senha do usuário")
+                    alert(`Data: ${dataFormatada} Usuário: ${nomeUsuario} E-Mail: ${cadEmail} Senha: ${CadSenha}`);
+                    // Alerta apos o cadastro ter sido cadastrado
+                    alert('Usuário cadastrado com sucesso na agenda! ')
+
+
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+
+                default:
+                    alert("Opção Inválida")
+                    // Invocar função para finalizar o processo
+                    process.exit()
+                    break;
+            }
+
+
+        }
+
+
+
+
+// Utilizar arrays, métodos, operadores unários, aritméticos, etc
+// Quando realizar o cadastro do usuário, realizar também a data de cadastro do usuário (quando ele foi criado) e exibir o usuário, o email e a data que o usuário foi criando
+// Cadastro: Nome, email e senha
+// Listagem: Data de criação(atual), nome, email e senha
+// atualizar: com base no email e senha
+// excluir: com base no email
+    </script>
+</body>
+
+</html>

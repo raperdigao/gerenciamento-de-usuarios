@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function formatarDataBrasileira(data) {
+  // Obtém os componentes da data
+  let dia = data.getDate().toString().padStart(2, '0');
+  let mes = (data.getMonth() + 1).toString().padStart(2, '0'); // Mês é base 0, então adicionamos 1
+  let ano = data.getFullYear();
+
+  // Formata a data no formato brasileiro
+  return `${dia}/${mes}/${ano}`;
+}
+
+// Cria um objeto Date com a data atual
+let data = new Date();
+
+// Formata a data no formato brasileiro
+let dataFormatada = formatarDataBrasileira(data);
+
+// Exibe a data formatada no console
+// alert(`Data: ${dataFormatada}`);
+    </script>
+</body>
+</html>
