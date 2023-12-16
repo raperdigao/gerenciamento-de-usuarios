@@ -1,4 +1,4 @@
-# gerenciamento-de-usu-rios
+# gerenciamento-de-usuarios
 Criação de um menu com as 4 operações que o usuário pode realizar (Cadastrar, listar, atualizar, deletar)
 realizar a criação dos métodos com switch case para validar as opções do usuário
 Utilizar arrays, métodos, operadores unários, aritméticos, etc
