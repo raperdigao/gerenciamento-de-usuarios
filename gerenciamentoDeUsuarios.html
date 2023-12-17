@@ -57,12 +57,13 @@
             [ 2 ] - Listagem de usuários...
             [ 3 ] - Atualizar cadastro de usuários...
             [ 4 ] - Excluir cadastro...
+            [ 5 ] - Sair do sistema
             `))
 
             switch (opcaoUsuario) {
                 case 1:
 
-                    // Quando realizar o cadastro do usuário, realizar também a data de cadastro do usuário (quando ele foi criado) e exibir o usuário, o email e a data que o usuário foi criando
+                    // Quando realizar o cadastro do usuário, realizar também a data de cadastro do usuário (quando ele foi criado) e exibir o usuário, o email e a data que o usuário foi criado
                     // Cadastro: Nome, email e senha
 
 
@@ -70,18 +71,95 @@
                     let cadEmail = prompt("Informe o email do usuário:    ")
                     let CadSenha = prompt("Informe a senha do usuário")
                     alert(`Data: ${dataFormatada} Usuário: ${nomeUsuario} E-Mail: ${cadEmail} Senha: ${CadSenha}`);
+
+                    // Método do array PUSH para acrescentar o usuário, email e senha no ARRAYUSUARIOS
+                    arrayUsuarios.push({ dataFormatada, nomeUsuario, cadEmail, CadSenha })
+
                     // Alerta apos o cadastro ter sido cadastrado
-                    alert('Usuário cadastrado com sucesso na agenda! ')
+                    console.log(arrayUsuarios);
+
+                    alert('Usuário cadastrado com sucesso! ')
 
 
                     break;
                 case 2:
+                    // Listagem: Data de criação(atual), nome, email e senha
+                    // Listagem dos usuéios cadastrados no arrayusuarios
+
+                    let listaDeUsuarios = "Lista de usuários: \n";  // Inicia a variavel e o \n para ir na linha abaixo
+
+                    // Criar um for simples com uma variavel para percorre todo o arrayusuarios
+                    for (listaArray of arrayUsuarios) {
+
+                        // Criar uma variavel para receber a lista de arrayusuarios 
+                        // Utilizar operador unário += é um incrementador
+                        // Listagem: Data de criação(atual), nome, email e senha
+                        listaDeUsuarios += `Data: ${listaArray.dataFormatada}, Nome do usuários: ${listaArray.nomeUsuario}, E-mail: ${listaArray.cadEmail}, Senha: ${listaArray.CadSenha}\n` // \n para ir na linha de baixo
+                    }
+
+
+                    // visualizar a lista de usuarios
+                    alert(listaDeUsuarios)
+
 
                     break;
                 case 3:
+                    // atualizar: com base no email e senha
+                    // Realizar metodo de atualização dos dados do gerenciador de usuarios
+                    // Precisa especificar um arrray principal o email e a senha ficou com principal 
+                    let emailAtualizar = prompt("Informe o e-mail do usuário: ");
+                    let senhaAtualizar = prompt("Informe a senha do usuário: ");
+
+                    // variavel para verificar se a informação informada é verdadeira 
+                    // Uma condição ternário
+                    //                                     Variavel buscaArray
+                    let usuarioBuscado = arrayUsuarios.find(buscaArray => buscaArray.cadEmail === emailAtualizar && buscaArray.CadSenha === senhaAtualizar)
+                    if (usuarioBuscado) {
+                        usuarioBuscado.cadEmail = prompt("Informe o novo e-mail: ");
+                        usuarioBuscado.CadSenha = prompt("Informe a nova senha: ");
+
+
+                    } else {
+                        // Se for falso
+                        alert("Nenhum usuário foi encontrado")
+                    }
+
+
 
                     break;
                 case 4:
+
+                    // excluir: com base no email
+                    // encontrar o usuário a ser deletado
+                    let usuarioExcluir = prompt("Informe o email do usuário a ser excluido: ");
+                    //                                               variavel para excluir 
+                    let usuarioParaExcluir = arrayUsuarios.findIndex(excluirCadastro => excluirCadastro.
+                    cadEmail === usuarioExcluir)
+                    // === é estritamente igual
+
+                    // realizar a comparação foi colocado diferente -1, para verificar na posição anterior do array
+                    if (usuarioParaExcluir !== -1) {
+
+                        // Irá localizar o nome se tiver dentro o array ira excluir
+                        alert("Usuário excluído com sucesso!!")
+                        
+                        //                 nome         quantidade 1
+                        arrayUsuarios.splice(usuarioParaExcluir, 1)
+
+
+
+                    } else {
+                        alert("Nenhum usuário foi encontrado")
+                    }
+
+
+
+                    break;
+                case 5:
+                    // Para sair do sistema
+                    alert("Obrigado por utilizar o sistema de gerenciamento do Perdigão, até mais...");
+                    loopBreak = false
+
 
                     break;
 
@@ -97,13 +175,6 @@
 
 
 
-
-// Utilizar arrays, métodos, operadores unários, aritméticos, etc
-// Quando realizar o cadastro do usuário, realizar também a data de cadastro do usuário (quando ele foi criado) e exibir o usuário, o email e a data que o usuário foi criando
-// Cadastro: Nome, email e senha
-// Listagem: Data de criação(atual), nome, email e senha
-// atualizar: com base no email e senha
-// excluir: com base no email
     </script>
 </body>
 
